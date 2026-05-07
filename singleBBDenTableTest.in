@@ -1,11 +1,13 @@
 blackbody 300000
-luminosity 37
-radius 17
-dlaw table
+luminosity 38
+radius 13
+stop radius 19.99
+dlaw table					# h=5.0 d=2300, other table values in dlawTableInfo
 continue 5.489395921727129 -28.35769933714156
 continue 19.6099784228377 -0.12493873660829993
-continue 20.0 -0.12493873660829993
+continue 20 -0.12493873660829993
 end of dlaw
 abundances HII region
-iterate
-save overview "singleBBDenTableTest.ovr" last
+iterate until convergence
+save overview "singleBBDenTableTest_L38_r13_stopRad_h5.0_d2300_iterateUntilConvergence.ovr" last
+
