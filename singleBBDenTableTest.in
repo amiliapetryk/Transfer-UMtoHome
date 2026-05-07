@@ -1,0 +1,11 @@
+blackbody 300000
+luminosity 37
+radius 17
+dlaw table
+continue 5.489395921727129 -28.35769933714156
+continue 19.6099784228377 -0.12493873660829993
+continue 20.0 -0.12493873660829993
+end of dlaw
+abundances HII region
+iterate
+save overview "singleBBDenTableTest.ovr" last

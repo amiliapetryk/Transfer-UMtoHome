@@ -1,0 +1,13 @@
+blackbody 30000 vary
+grid list "temp.gridlist" linear sequential
+luminosity 36 vary
+grid list "lum.gridlist" sequential
+radius 15
+dlaw table
+continue 5.489395921727129 -28.35769933714156
+continue 19.6099784228377 -0.12493873660829993
+continue 20.0 -0.12493873660829993
+end of dlaw
+abundances HII region
+iterate
+save overview "2dBBgridTable_h0.75_d2300_r15.ovr" last
