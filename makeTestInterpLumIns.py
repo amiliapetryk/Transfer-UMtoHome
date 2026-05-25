@@ -1,4 +1,5 @@
 # the goal of this script is to create the 45 (5 temp x 3 dist x 3 hden) in scripts necessary to test how well they all fit to 50% neutral fraction
+# so as it turns out this generated the wrong files and they don't align with interpLum which I should've checked but didn't
 
 import shutil
 
@@ -25,8 +26,8 @@ if dist == 2800:
 	rad = 19.695408618162325
 
 counter = 0
-for temp in tempList:
-	for hden in hdenList:
+for hden in hdenList:
+	for temp in tempList:
 	
 		if hden == 0.75:
 			h2 = -0.12493873660829993
@@ -72,7 +73,7 @@ for temp in tempList:
 		
 		smallLum = round(lumList[counter],3)
 		
-		inName = "testInterpLum_T" + str(temp) +"_L" + str(smallLum) + "_h" + str(hden) + "_d" + str(dist) + "_r13_IUC.in" 
+		inName = "testInterpLum_T" + str(temp) +"_L" + str(smallLum) + "_h" + str(hden) + "_d" + str(dist) + "_r13_abun_IUC.in" 
 		
 		inFile = open(inName,"w")
 		
@@ -80,25 +81,26 @@ for temp in tempList:
 		inFile.write("luminosity " + str(lumList[counter]) + "\n")
 		inFile.write("radius 13" + "\n")
 		inFile.write("stop radius 19.99" + "\n")
+		inFile.write("abundances HII region" + "\n")
 		inFile.write("dlaw table" + "\n")
 		inFile.write(line1 + "\n")
 		inFile.write(line2 + "\n")
 		inFile.write(line3 + "\n")
 		inFile.write("end of dlaw" + "\n")
-		inFile.write("iterate until convergence")
-		inFile.write('save overview "testInterpLum_T'+ str(temp) +'_L' + str(smallLum) + '_h' + str(hden) + '_d' + str(dist) + '_r13_IUC.ovr" last' + "\n")
+		inFile.write("iterate until convergence" + "\n")
+		inFile.write('save overview "testInterpLum_T'+ str(temp) +'_L' + str(smallLum) + '_h' + str(hden) + '_d' + str(dist) + '_r13_abun_IUC.ovr" last' + "\n")
 		
 		inFile.close()
 		
 		counter += 1
 
 counter = 0		
-for temp in tempList:
-	for hden in hdenList:
+for hden in hdenList:
+	for temp in tempList:
 	
 		smallLum = round(lumList[counter],3)
 		
-		inName = "testInterpLum_T" + str(temp) +"_L" + str(smallLum) + "_h" + str(hden) + "_d" + str(dist) + "_r13_IUC.in" 
+		inName = "testInterpLum_T" + str(temp) +"_L" + str(smallLum) + "_h" + str(hden) + "_d" + str(dist) + "_r13_abun_IUC.in" 
 		destination = "../cloudyCode"
 		dest = shutil.copy(inName,destination)
 		
