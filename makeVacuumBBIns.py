@@ -6,7 +6,7 @@ hden= 2.0
 distList = 2500
 rad = 19.646190595492143
 		
-inName = "2dBBgridVacuum" + "_h" + str(hden) + "_d" + str(dist) + "_GASS_sublim_IUC.in"
+inName = "2dBBgrid_vacuum" + "_h" + str(hden) + "_d" + str(dist) + "_GASS_sublim_IUC.in"
 		
 inFile = open(inName,"w")
 
@@ -21,10 +21,10 @@ inFile.write("abundances ISM no grains" + "\n")
 inFile.write("grains GASS function sublimation" + "\n")
 inFile.write("hden " + str(hden) + " linear" + "\n")
 inFile.write("iterate until convergence" + "\n")
-inFile.write('save overview "2dBBgridVacuum' + '_h' + str(hden) + '_d' + str(dist) + '_GASS_sublim_IUC.ovr" last' + "\n")
+inFile.write('save overview "2dBBgrid_vacuum' + '_h' + str(hden) + '_d' + str(dist) + '_GASS_sublim_IUC.ovr" last' + "\n")
 
 inFile.close()
 		
-inName = "2dBBgridVacuum" + "_h" + str(hden) + "_d" + str(dist) + "_GASS_sublim_IUC.in"
+inName = "2dBBgrid_vacuum" + "_h" + str(hden) + "_d" + str(dist) + "_GASS_sublim_IUC.in"
 destination = "../cloudyCode"
 dest = shutil.move(inName,destination)

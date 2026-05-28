@@ -7,7 +7,7 @@ grid014 = os.chdir(toGrid014)
 
 massLumList = [(2.0,0.6),(2.21,0.8),(2.44,1.1),(2.7,1.4),(2.99,1.6),(3.3,1.9),(3.65,2.0),(4.04,2.3),(4.46,2.5),(4.93,2.7),(5.45,2.9),(6.03,3.0),(6.66,3.2),(7.37,3.4),(8.15,3.6),(9.0,3.8),(9.96,3.9),(11.01,4.1),(12.17,4.3),(13.45,4.4),(14.87,4.6),(16.44,4.7),(18.17,4.9)]
 dist = 2500
-hdenList = 2.0
+hden = 2.0
 rad = 19.646190595492143
 
 dirList = list()
@@ -73,10 +73,7 @@ for model in dirList:
 	inFile.write('save overview "' + modelName + "_vacuum_h" + str(hden) + "_d" + str(dist) + '_GASS_sublim_IUC.ovr" last' + "\n")
 			
 for model in dirList:
-	for hden in hdenList:
-		for dist in distList:
-		
-			inName = modelName + "_vacuum_h" + str(hden) + "_d" + str(dist) + "_GASS_sublim_IUC.in"
-			destination = "../cloudyCode"
-			dest = shutil.copy(inName,destination)
+	inName = model + "_vacuum_h" + str(hden) + "_d" + str(dist) + "_GASS_sublim_IUC.in"
+	destination = "../cloudyCode"
+	dest = shutil.copy(inName,destination)
 
