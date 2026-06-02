@@ -36,7 +36,7 @@ radFactor = 3.086e18 # cm/pc
 
 normDen1Array = np.divide(den1Array,denFactor) # hydrogen /cm^3
 normDen2Array = np.divide(den2Array,denFactor) # hydrogen /cm^3
-#normRadArray = np.divide(radArray,radFactor) # pc
+normRadArray = np.divide(radArray,radFactor) # pc
 
 pointPair1List = list()
 pointPair2List = list()
@@ -60,13 +60,14 @@ for num in range(len(radArray)):
 
 #scaledDen1Array = normDen1Array * scaleFactor1
 #scaledDen2Array = normDen2Array * scaleFactor2
-
-#plt.scatter(normRadArray[0:],normDen1Array[0:],color="red",label="Mdot=1e-6",s=10)
-#plt.scatter(normRadArray[0:],normDen2Array[0:],color="blue",label="Mdot=1e-7",s=6)
-#plt.xlabel("Radius [pc]")
-#plt.ylabel("Density profile [H/cm^3]")
+"""
+plt.scatter(normRadArray[0:],normDen1Array[0:],color="red",label="Mdot=1e-6",s=10)
+plt.scatter(normRadArray[0:],normDen2Array[0:],color="blue",label="Mdot=1e-7",s=6)
+plt.xlabel("Radius [pc]")
+plt.ylabel("Density profile [H/cm^3]")
 #plt.xscale("log")
-#plt.yscale("log")
-#plt.title("Density profile according to equation of stellar structure")
-#plt.legend()
-#plt.show()
+plt.yscale("log")
+plt.title("Density profile of calculateBBDensityProfile.py")
+plt.legend()
+plt.show()
+"""

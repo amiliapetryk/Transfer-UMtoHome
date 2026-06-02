@@ -23,6 +23,7 @@ colourList = ["lightpink","lightcoral","indianred","tomato","darkred","sandybrow
 dist = 2500
 hden = 2.0
 rad = 19.646190595492143
+effRadFactor = 100
 
 dirList = list()
 
@@ -85,7 +86,7 @@ for model in dirList:
 	inFile = open(inName,"w")
 	
 	# calculate density profile to input
-	ri = effRad * 69570000000 # solar rad * cm/solar rad = cm
+	ri = effRadFactor * effRad * 69570000000 # solar rad * cm/solar rad = cm
 	rf = 10**20 # cm
 	num = 1000
 	radArray = np.logspace(math.log10(ri),math.log10(rf),num)
@@ -129,24 +130,24 @@ for model in dirList:
 		pointList.append(point)
 	massPointListTuple = mass,pointList
 	massPointList.append(massPointListTuple)
+
+
+
+
+	#plt.scatter(pcRadArray,kmVelArray,color=colourList[colourCounter],marker="o",label="wind velocity for M={}".format(modelMass),s=6)
+	plt.scatter(smallRadArray,hDenArray,color=colourList[colourCounter],marker="x",label="hden profile for M={}".format(modelMass),s=6)
 	
 	colourCounter += 1
-
-
-
-
-#plt.scatter(pcRadArray,kmVelArray,color=colourList[colourCounter],marker="o",label="wind velocity for M={}".format(modelMass),s=6)
-#plt.scatter(smallRadArray,hDenArray,color=colourList[colourCounter],marker="x",label="hden profile for M={}".format(modelMass),s=6)
 #plt.plot(xData,yData,color="black",linestyle=":")
 #plt.plot(pcRadArray,yData,color="black",linestyle=":")
 
 #print(massPointList)	
 #print(fitParamList)
 	
-#plt.xlabel("Radius [pc]")
-#plt.ylabel("Wind velocity [km/s] or hden profile [H/cm^3]")
+plt.xlabel("Radius [pc]")
+plt.ylabel("Density profile [H/cm^3]")
 #plt.xscale("log")
-#plt.yscale("log")
-#plt.title("Tests for gotberg stellar wind parameters")
-#plt.legend()
-#plt.show()
+plt.yscale("log")
+plt.title("Density profile is fitGotbergStellarWindDensities")
+plt.legend()
+plt.show()
