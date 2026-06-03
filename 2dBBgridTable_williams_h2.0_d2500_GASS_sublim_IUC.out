@@ -1,0 +1,146 @@
+                                                          Cloudy 25.00
+                                                         www.nublado.org
+
+                                                  PRNG seed: 0xf647f1257e3aa7c7
+
+                       **************************************25Aug25**************************************
+                       *                                                                                 *
+                       * blackbody 30000 vary                                                            *
+                       * grid list "temp.gridlist" linear sequential                                     *
+                       * luminosity 36 vary                                                              *
+                       * grid list "lum.gridlist" linear sequential                                      *
+                       * radius 13                                                                       *
+                       * stop radius 19.99                                                               *
+                       * abundances ISM no grains                                                        *
+                       * grains GASS function sublimation                                                *
+                       * #<<< mie_read_opc reading file -- graphite_ism_10.opc                      >>>> *
+                       * #<<< mie_read_opc reading file -- silicate_ism_10.opc                      >>>> *
+                       * dlaw table                                                                      *
+                       * iterate until convergence                                                       *
+                       * save overview "2dBBgridTable_williams_h2.0_d2500_GASS_sublim_IUC.ovr" last      *
+                       *                                                                                 *
+                       ***********************************************************************************
+
+
+
+                                                          Grid  Driver
+                                                          Cloudy 25.00
+
+                       **************************************25Aug25**************************************
+                       *                                                                                 *
+               VARY>>> * blackbody 30000 vary                                                            *
+                       * grid list "temp.gridlist" linear sequential                                     *
+               VARY>>> * luminosity 36 vary                                                              *
+                       * grid list "lum.gridlist" linear sequential                                      *
+                       * radius 13                                                                       *
+                       * stop radius 19.99                                                               *
+                       * abundances ISM no grains                                                        *
+                       * grains GASS function sublimation                                                *
+                       * dlaw table                                                                      *
+                       * continue 12.9 -2                                                                *
+                       * continue 19.646190595492143 -2		# step change equal to 1/10 shock width         *
+                       * continue 19.65844 0.3010299956639812                                            *
+                       * continue 20 0.3010299956639812                                                  *
+                       * end of dlaw                                                                     *
+                       * iterate until convergence                                                       *
+                       * save overview "2dBBgridTable_williams_h2.0_d2500_GASS_sublim_IUC.ovr" last      *
+                       *                                                                                 *
+                       ***********************************************************************************
+
+
+ Producing grid output.
+
+   2 parameter(s) will be varied.  The first lines, and the increments are:
+
+ BLACKbody= 4.477121 LOG
+ 5 parameters read from list.
+
+ LUMINOSITY 36.000000 LOG range -0.000232 6.866279
+ 5 parameters read from list.
+
+ Running in single-CPU grid mode. I will now start to write the input files.
+
+ **************************************************
+ BLACKbody= 4.477121 LOG
+ LUMINOSITY 1.556303 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 4.477121 LOG
+ LUMINOSITY 1.562293 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 4.477121 LOG
+ LUMINOSITY 1.568202 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 4.477121 LOG
+ LUMINOSITY 1.574031 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 4.477121 LOG
+ LUMINOSITY 1.579784 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 5.000000 LOG
+ LUMINOSITY 1.556303 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 5.000000 LOG
+ LUMINOSITY 1.562293 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 5.000000 LOG
+ LUMINOSITY 1.568202 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 5.000000 LOG
+ LUMINOSITY 1.574031 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 5.000000 LOG
+ LUMINOSITY 1.579784 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 5.477121 LOG
+ LUMINOSITY 1.556303 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 5.477121 LOG
+ LUMINOSITY 1.562293 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 5.477121 LOG
+ LUMINOSITY 1.568202 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 5.477121 LOG
+ LUMINOSITY 1.574031 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 5.477121 LOG
+ LUMINOSITY 1.579784 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 5.845098 LOG
+ LUMINOSITY 1.556303 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 5.845098 LOG
+ LUMINOSITY 1.562293 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 5.845098 LOG
+ LUMINOSITY 1.568202 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 5.845098 LOG
+ LUMINOSITY 1.574031 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 5.845098 LOG
+ LUMINOSITY 1.579784 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 6.000000 LOG
+ LUMINOSITY 1.556303 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 6.000000 LOG
+ LUMINOSITY 1.562293 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 6.000000 LOG
+ LUMINOSITY 1.568202 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 6.000000 LOG
+ LUMINOSITY 1.574031 LOG range -0.000232 6.866279
+ **************************************************
+ BLACKbody= 6.000000 LOG
+ LUMINOSITY 1.579784 LOG range -0.000232 6.866279
+ **************************************************
+ **************************************************
+ **************************************************
+
+ Writing input files has been completed.
+
+
+ Cloudy ends: 0 zone, 0 iteration. (single thread) ExecTime(s) 0.13
+ [Stop in cdMain at maincl.cpp:590, Cloudy exited OK]
