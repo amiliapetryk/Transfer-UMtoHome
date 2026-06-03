@@ -1,0 +1,16 @@
+blackbody 30000 vary
+grid list "temp.gridlist" linear sequential
+luminosity 36 vary
+grid list "lum.gridlist" linear sequential
+radius 13
+stop radius 19.99
+abundances ISM no grains
+grains GASS function sublimation
+dlaw table
+continue 12.9 -2
+continue 19.646190595492143 -2		# step change equal to 1/10 shock width
+continue 19.65844 0.3010299956639812
+continue 20 0.3010299956639812
+end of dlaw
+iterate until convergence
+save overview "2dBBgridTable_williams_h2.0_d2500_GASS_sublim_IUC.ovr" last

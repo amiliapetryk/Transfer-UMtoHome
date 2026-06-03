@@ -1,0 +1,10 @@
+blackbody 30000 vary
+grid list "temp.gridlist" linear sequential
+luminosity 36 vary
+grid list "lum.gridlist" sequential
+radius 19.646190595492143
+abundances ISM no grains
+grains GASS function sublimation
+hden 0.3010299956639812
+iterate until convergence
+save overview "2dBBgridTable_vacuum_h2.0_d2500_GASS_sublim_IUC.ovr" last
