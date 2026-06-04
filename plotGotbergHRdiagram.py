@@ -9,6 +9,8 @@ colourList = ["lightpink","lightcoral","indianred","tomato","darkred","sandybrow
 "mediumseagreen","springgreen","aquamarine","turquoise","lightseagreen","paleturquoise","cyan","deepskyblue","royalblue","mediumslateblue","darkviolet",
 "mediumorchid","violet","hotpink","deeppink","mediumvioletred","crimson","indigo"]
 
+fig, ax = plt.subplots()
+
 colourCounter = 0
 for triple in massTempLumList:
 	mass = triple[0] # M_solar
@@ -23,13 +25,29 @@ for triple in massTempLumList:
 	else:
 		mfc = colourList[colourCounter]
 	
-	plt.scatter(temp,lum,label="M={} $M_\u2609$".format(mass),color=colourList[colourCounter],facecolor=mfc,s=64)
+	ax.scatter(temp/100000,lum,label="M={} $M_\u2609$".format(mass),color=colourList[colourCounter],facecolor=mfc,s=64)
+	if colourCounter % 2 == 0 and colourCounter <= 12:
+		ax.text((temp/100000)+0.01,lum-0.018,"M={} $M_\u2609$".format(mass),fontsize=18)
+	elif colourCounter > 12 and (colourCounter-12) % 3 == 0:
+		ax.text((temp/100000)-0.01,lum-0.037,"M={} $M_\u2609$".format(mass),fontsize=18)
+		"""
+		if colourCounter == 18:
+			ax.text((temp/100000)-0.01,lum-0.035,"M={} $M_\u2609$".format(mass),fontsize=18)
+		elif colourCounter == 20:
+			ax.text((temp/100000)-0.02,lum-0.035,"M={} $M_\u2609$".format(mass),fontsize=18)
+		elif colourCounter == 22:
+			#ax.text((temp/100000)-0.02,lum-0.035,"M={} $M_\u2609$".format(mass),fontsize=16)
+			blank = 5
+		else:
+			ax.text((temp/100000)+0.01,lum-0.018,"M={} $M_\u2609$".format(mass),fontsize=18)
+		"""
 	colourCounter += 1
 	
-plt.legend(fontsize="large")
-plt.text(19000,35.25,"$\u25CF$ = model is allowed",size=20)
-plt.text(19000,35.2,"$\u25CB$ = model is not allowed",size=20)
-plt.xlabel("Temperature [K]",size=20)
-plt.ylabel("log(Luminosity[erg/s])",size=20)
-plt.title("Upper limits on stripped-envelope progenitor of RCW 86, d=2500 pc",size=24)
+#ax.legend(fontsize="large")
+ax.text(0.19,35.25,"$\u25CF$ = model is allowed",size=20)
+ax.text(0.19,35.2,"$\u25CB$ = model is not allowed",size=20)
+ax.set_xlabel("Temperature $\u22C5$ 10$^5$ [K]",size=20)
+ax.set_ylabel("log(Luminosity[erg/s])",size=20)
+ax.tick_params(axis="both",labelsize=20)
+ax.set_title("Upper limits on stripped-envelope progenitor of RCW 86, d=2500 pc",size=24)
 plt.show()

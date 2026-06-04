@@ -2,7 +2,7 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
-import alterInterpLum
+import alterSetupInterpLum
 
 d2300LumValues = [36.0, 36.0, 36.435403920772714, 37.09087136714792, 37.42693953016554, 36.715594335795316, 36.823301147746825, 37.180241877476135, 37.750175678682254, 38.0, 37.4995413685652, 37.62081075906676, 37.923631989384184, 38.0, 38.0]
 d2500LumValues = [36.0, 36.04845787173087, 36.52505677571444, 37.17982965790094, 37.497916557201386, 36.83065313719807, 36.91712995716621, 38.0, 37.84637671816081, 38.0, 37.635922416922035, 37.744342120403395, 38.0, 38.0, 38.0]
@@ -32,6 +32,8 @@ counter = 0
 masterLowHList = list()
 masterMidHList = list()
 masterHighHList = list()
+
+fig, ax = plt.subplots()
 
 for temp in tempList:
 	
@@ -71,17 +73,17 @@ for temp in tempList:
 		
 	lumCounter = 0	
 	for item in lowLumList:	
-		plt.scatter(temp,lowLumList[lumCounter],marker='x',color=colour,s=64,label="T={} K, hden=0.75 cm$^-$$^3$".format(temp))
+		ax.scatter(temp,lowLumList[lumCounter],marker='x',color=colour,s=128,label="T={} K, hden=0.75 cm$^-$$^3$".format(temp))
 		lumCounter += 1
 		
 	lumCounter = 0
 	for item in midLumList:
-		plt.scatter(temp,midLumList[lumCounter],marker='o',color=colour,s=64,label="T={} K, hden=2.0 cm$^-$$^3$".format(temp))
+		ax.scatter(temp,midLumList[lumCounter],marker='o',color=colour,s=128,label="T={} K, hden=2.0 cm$^-$$^3$".format(temp))
 		lumCounter += 1
 
 	lumCounter = 0
 	for item in highLumList:
-		plt.scatter(temp,highLumList[lumCounter],marker='s',color=colour,s=64,label="T={} K, hden=5.0 cm$^-$$^3$".format(temp))
+		ax.scatter(temp,highLumList[lumCounter],marker='s',color=colour,s=128,label="T={} K, hden=5.0 cm$^-$$^3$".format(temp))
 		lumCounter += 1
 		
 	#print("counter is {}".format(counter))
@@ -94,7 +96,7 @@ for pair in masterLowHList:
 	smallLowTempList.append(pair[0])
 	smallLowLumList.append(pair[1])
 
-plt.plot(smallLowTempList,smallLowLumList,color="gray",linestyle="dotted",label="Upper limit for h=0.75 cm$^-$$^3$")	
+ax.plot(smallLowTempList,smallLowLumList,color="gray",linestyle="dotted",label="Upper limit for h=0.75 cm$^-$$^3$")	
 
 smallMidTempList = list()
 smallMidLumList = list()
@@ -102,7 +104,7 @@ for pair in masterMidHList:
 	smallMidTempList.append(pair[0])
 	smallMidLumList.append(pair[1])
 
-plt.plot(smallMidTempList,smallMidLumList,color="gray",linestyle="dashed",label="Upper limit for h=2.0 cm$^-$$^3$")
+ax.plot(smallMidTempList,smallMidLumList,color="gray",linestyle="dashed",label="Upper limit for h=2.0 cm$^-$$^3$")
 
 smallHighTempList = list()
 smallHighLumList = list()
@@ -110,17 +112,23 @@ for pair in masterHighHList:
 	smallHighTempList.append(pair[0])
 	smallHighLumList.append(pair[1])
 
-plt.plot(smallHighTempList,smallHighLumList,color="gray",linestyle="solid",label="Upper limit for h=5.0 cm$^-$$^3$")		
+ax.plot(smallHighTempList,smallHighLumList,color="gray",linestyle="solid",label="Upper limit for h=5.0 cm$^-$$^3$")		
 	
 #plt.plot(tempList,midLumList,color="gray",linestyle="dashed",label="Upper limit for h=2.0")
 #plt.plot(tempList,highLumList,color="gray",linestyle="solid",label="Upper limit or h=5.0")
 	
 	
-plt.xlabel("Temperature [K]",size=20)
-plt.ylabel("log(Luminosity[erg/s])",size=20)	
+ax.set_xlabel("Temperature $\u22C5$ 10$^6$ [K]",size=20)
+ax.tick_params(axis="both",labelsize=20)
+ax.set_ylabel("log(Luminosity[erg/s])",size=20)	
 #plt.title("HR diagram for Cloudy BB plots for distance of {} pc".format(dist))
-plt.title("Upper limits on blackbody progenitor of RCW 86, d=2500 pc",size=24)
-plt.legend(fontsize="large")
+ax.set_title("Upper limits on blackbody progenitor of RCW 86, d=2500 pc",size=24)
+
+ax.text(0,37.38,"Upper limit for h=5.0 cm$^-$$^3$",rotation=29.6,fontsize=20)
+ax.text(200000,36.97,"Upper limit for h=2.0 cm$^-$$^3$",rotation=29.6,fontsize=20)
+ax.text(350000,36.52,"Upper limit for h=0.75 cm$^-$$^3$",rotation=29.6,fontsize=20)
+
+#ax.legend(fontsize="large")
 plt.show()
 	
 	
